@@ -1,0 +1,42 @@
+{
+    "title": "Your Favorite Cloud Survey",
+    "questions": [
+        {
+            "type": "string",
+            "label": "Your Name",
+            "required": true
+        },
+        {
+            "type": "checkbox",
+            "label": "What clouds do you use?",
+            "help": "Professional and at home",
+            "required": true,
+            "options": [
+                "Azure",
+                "Google Cloud",
+                "AWS",
+                "Digital Ocean",
+                "On premise private cloud",
+                "+Other"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "What orchestrator do you prefer?",
+            "required": true,
+            "options": [
+                "Azure",
+                "Google Cloud",
+                "AWS",
+                "Digital Ocean",
+                "On premise private cloud",
+                "+Other"
+            ]
+        },
+        {
+            "type": "text",
+            "label": "Why",
+            "help": "Kindly restrict your argumentation to 100 words or less"
+        }
+    ]
+}

@@ -1,0 +1,138 @@
+###
+### LAB 9_2 - Storage in PODs - PV/PVC/NFS
+###
+
+1. Creating storage shared between PODs
+
+Goal is to create a deployment of 3 nginx servers that will have their DocumentRoot (/usr/share/nginx/html) mounted from a shared Persistent Volume. Any change in one of the PODs DocumentRoot should be reflected in the other PODs.
+
+2. Create a PV that can be used by the POD
+
+The PV needs to be of type NFS, access type: RWM
+
+E.g.:
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs
+spec:
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: st99node01
+    path: "/mnt/export/student01"
+
+kubectl create -f nfs-pv.yaml
+
+Please change student01 with your student nr. You can experiment with the storage size.
+
+3. The POD needs a PVC that orders the right amount and type of storage
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 2Mi
+
+kubectl create -f nfs-pvc.yaml
+
+
+3. Now we need to create a POD that will consume this PV by excercising the PVC.
+
+We will use a deployment for this, so we can have multiple replicas:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nginx-nfs
+  name: nginx-nfs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: nginx-nfs
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        run: nginx-nfs
+    spec:
+      containers:
+      - image: nginx:1.7.1
+        name: nginx-nfs
+        imagePullPolicy: Always
+        volumeMounts:
+          # name must match the volume name below
+          - name: nfs
+            mountPath: "/usr/local/nginx/html"
+      volumes:
+      - name: nfs
+        persistentVolumeClaim:
+          claimName: nfs
+
+kubectl create -f nfs-nginx-deployment.yaml
+
+
+4. Check if the deployment comes up
+
+kubectl get nginx-nfs
+kubectl describe deployment nginx-nfs
+kubectl get pv
+kubectl get pvc
+
+Explain what you see; why is the deployment in pending state?
+
+5. Create a new PV
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs2
+spec:
+  capacity:
+    storage: 5Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: st99node01
+    path: "/mnt/export/student01"
+
+
+kubectl create -f nfs2-pv.yaml
+
+6. Observe the deployment
+
+
+kubectl get nginx-nfs
+kubectl describe deployment nginx-nfs
+kubectl get pv
+kubectl get pvc
+
+Explain what you see.
+
+
+7. Create a service for the deployment
+
+   kubectl expose deployment nginx-nfs --port 80
+
+   Try to access whe webserver using the service's cluster IP.
+
+8. Use kubectl exec to get into one of the deployments nginx containers and adapt the index.html file.
+
+   kubectl exec -it <podname> -- sh
+
+   Check with curl http://<cluster-ip> if you can see the changes for both PODs.
+   If needed, double check with the PODs IPs
+
+   E.g.: kubectl get pods -o wide -l nginx-nfs
+

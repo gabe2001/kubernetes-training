@@ -1,0 +1,45 @@
+{
+    "title": "Your Favorite Salesforce Mascot",
+    "questions": [
+        {
+            "type": "string",
+            "label": "Your Name",
+            "required": true
+        },
+        {
+            "type": "checkbox",
+            "label": "Which of the following Salesforce mascots do you know?",
+            "required": true,
+            "options": [
+                "Astro(logical)",
+                "Einstein",
+                "Appy",
+                "Cloudy",
+                "Codey",
+                "Hootie",
+                "None",
+                "+Other"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "What mascot do you identify yourself with?",
+            "required": true,
+            "options": [
+                "Astro(logical)",
+                "Einstein",
+                "Appy",
+                "Cloudy",
+                "Codey",
+                "Hootie".
+                "None",
+                "+Other"
+            ]
+        },
+        {
+            "type": "text",
+            "label": "Why",
+            "help": "Kindly restrict your argumentation to 100 words or less"
+        }
+    ]
+}

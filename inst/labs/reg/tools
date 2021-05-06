@@ -1,0 +1,4 @@
+curl -X GET https://st00node01:5000/v2/_catalog
+curl -X GET https://st00node01:5000/v2/sample-container/tags/list
+
+https://github.com/vivekjuneja/docker_registry_cli.git

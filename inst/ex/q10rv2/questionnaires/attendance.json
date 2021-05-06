@@ -1,0 +1,49 @@
+{
+    "title": "Attendance Registry CKAD South Africa April 1st - 3rd",
+    "questions": [
+        {
+            "type": "string",
+            "label": "Your Name",
+            "required": true
+        },
+        {
+            "type": "checkbox",
+            "label": "Please select the days you attended the class",
+            "help": "Choose the best answer",
+            "required": true,
+            "options": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Cannot remember",
+                "+Other"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "Any previous experience with K8S?",
+            "required": true,
+            "options": [
+                "Yes",
+                "Superficially",
+                "No",
+                "+Other"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "Did you fill out the course evaluation already?",
+            "required": true,
+            "options": [
+                "Yes",
+                "No",
+                "+Other"
+            ]
+        },
+        {
+            "type": "text",
+            "label": "Any remarks you would like to give on this questionnaire app",
+            "help": "Kindly restrict your comments to 100 words or less"
+        }
+    ]
+}

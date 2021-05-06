@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ds-example
+  labels:
+    app: ds-example
+spec:
+  selector:
+    matchLabels:
+      app: ds-example
+  template:
+    metadata:
+      labels:
+        app: ds-example
+    spec:
+      containers:
+      - image: pamvdam/astro:sf1
+        imagePullPolicy: IfNotPresent
+        name: astro
+        ports:
+        - containerPort: 8080
+          protocol: TCP

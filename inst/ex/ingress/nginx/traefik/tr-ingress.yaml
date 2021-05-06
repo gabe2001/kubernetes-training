@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: colors
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/rewrite-target: "/"
+spec:
+  rules:
+  - host: st00node01.itgildelab.net
+    http:
+      paths:
+      - path: /red
+        backend:
+          serviceName: nginxc-red
+          servicePort: 80
+  - host: st00node01.itgildelab.net
+    http:
+      paths:
+      - path: /black
+        backend:
+          serviceName: nginxc-black
+          servicePort: 80
+  - host: st00node01.itgildelab.net
+    http:
+      paths:
+      - path: /purple
+        backend:
+          serviceName: nginxc-purple
+          servicePort: 80

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginxc-deployment
+  name: nginxc-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nginxc-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nginxc-deployment
+    spec:
+      containers:
+      - image: pamvdam/nginxc:v1.1
+        name: nginxc-deployment
+        env:
+          - name: COLOR
+            valueFrom:
+              configMapKeyRef:
+                name: myconfig
+                key: color
+        ports:
+        - containerPort: 80

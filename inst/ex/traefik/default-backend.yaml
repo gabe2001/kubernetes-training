@@ -1,0 +1,8 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: default-backend
+spec:
+  backend:
+    serviceName: nginxc-red
+    servicePort: 80

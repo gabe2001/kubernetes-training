@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  color: purple
+  mascot: astro
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: myconfig
+  selfLink: /api/v1/namespaces/default/configmaps/myconfig

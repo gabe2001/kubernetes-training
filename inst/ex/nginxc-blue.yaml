@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginxc-blue
+  name: nginxc-blue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nginxc-blue
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nginxc-blue
+    spec:
+      containers:
+      - image: pamvdam/nginxc:v1.1
+        name: nginxc-blue
+        env:
+          - name: COLOR
+            value: "blue"
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}

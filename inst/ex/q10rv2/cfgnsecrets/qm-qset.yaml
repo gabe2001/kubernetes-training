@@ -1,0 +1,56 @@
+apiVersion: v1
+data:
+  mascot.json: |
+    {
+        "title": "Your Favorite Salesforce Mascot",
+        "questions": [
+            {
+                "type": "string",
+                "label": "Your Name",
+                "required": true
+            },
+            {
+                "type": "checkbox",
+                "label": "Which of the following Salesforce mascots do you know?",
+                "required": true,
+                "options": [
+                    "Astro(logical)",
+                    "Einstein",
+                    "Appy",
+                    "Cloudy",
+                    "Codey",
+                    "Hootie",
+                    "None",
+                    "+Other"
+                ]
+            },
+            {
+                "type": "radio",
+                "label": "What mascot do you identify yourself with?",
+                "required": true,
+                "options": [
+                    "Astro(logical)",
+                    "Einstein",
+                    "Appy",
+                    "Cloudy",
+                    "Codey",
+                    "Hootie",
+                    "None",
+                    "+Other"
+                ]
+            },
+            {
+                "type": "text",
+                "label": "Why",
+                "help": "Kindly restrict your argumentation to 100 words or less"
+            }
+        ]
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2019-11-22T10:04:18Z"
+  name: qset
+  namespace: default
+  resourceVersion: "290669"
+  selfLink: /api/v1/namespaces/default/configmaps/qset
+  uid: 71c02235-a9f4-41c4-8c68-376abd3800a8

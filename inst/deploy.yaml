@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pyco2
+  name: pyco2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pyco2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pyco2
+    spec:
+      containers:
+      - image: pamvdam/pyco2:v4x86
+        name: pyco2
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

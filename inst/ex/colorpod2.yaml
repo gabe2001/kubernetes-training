@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: color-vol-container
+spec:
+  containers:
+  - name: color-vol-container
+    image: pamvdam/nginxc:v1.1
+    volumeMounts:
+      - name: myconfigvol
+        mountPath: /myconfig
+  volumes:
+    - name: myconfigvol
+      configMap:
+        name: myconfig

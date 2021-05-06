@@ -1,0 +1,49 @@
+###
+### Lab for Traefik Ingress
+###
+
+1. To create the RBAC/grants for Traefik ingress
+   kubectl create -f traefik-rbac.yaml
+
+2. To create the traefik daemonset including exposure over NodePort
+
+   kubectl create -f traefik-ds-np.yaml
+
+3. To enable access to the dashboard of Trafeik over nodeport
+
+   kubectl create -f traefik-ui-svc.yaml
+
+
+4. To deploy the nginxc container color services
+  
+   kubectl create -f nginxc-black.yml (and the other colors)
+  
+5. Create services (clusterIP type for above nginxc deployments)
+
+  kubectl expose deployment nginxc-black (for all the colors)
+
+6. Edit (change hostname) ingress rules in tr-ingress.yaml and apply them
+
+
+   kubectl create -f tr-ingress.yaml
+
+
+Excercises 
+
+
+  a) Try to incorporate the q10rv2 service on path /questionnaire
+
+  b) Create more colors (create deployments, change ENV color, create services, adapt tr-ingress.yml)
+
+  c) Try to get hostbased routing in tr-ingress.yml
+
+
+
+lab9
+nginxc-black.yml
+nginxc-purple.yaml
+nginxc-red.yml
+traefik-ds-np.yaml
+traefik-rbac.yaml
+traefik-ui-svc.yaml
+tr-ingress.yaml

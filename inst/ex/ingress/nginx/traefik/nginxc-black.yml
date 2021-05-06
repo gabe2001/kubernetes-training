@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginxc-black
+  name: nginxc-black
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: nginxc-black
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nginxc-black
+    spec:
+      containers:
+      - image: pamvdam/nginxc:v1.1
+        name: nginxc-black
+        ports:
+        - containerPort: 80
+        env:
+          - name: COLOR
+            value: "black"

@@ -1,0 +1,2 @@
+wget https://github.com/containous/traefik/raw/v1.7/examples/k8s/traefik-rbac.yaml
+wget https://github.com/containous/traefik/raw/v1.7/examples/k8s/traefik-ds.yaml

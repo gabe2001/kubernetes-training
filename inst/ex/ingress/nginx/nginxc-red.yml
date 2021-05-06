@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginxc-red
+  name: nginxc-red
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: nginxc-red
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nginxc-red
+    spec:
+      containers:
+      - image: pamvdam/nginxc:v1.1
+        name: nginxc-red
+        ports:
+        - containerPort: 80
+        env:
+          - name: COLOR
+            value: "red"

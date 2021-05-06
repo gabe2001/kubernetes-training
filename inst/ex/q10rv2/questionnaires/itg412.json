@@ -1,0 +1,116 @@
+{
+    "title": "Course Evaluation",
+    "questions": [
+        {
+            "type": "string",
+            "label": "Your Name",
+            "required": true
+        },
+	{
+ 	    "type": "string",
+	    "label": "Course ID",
+	    "required": true
+	},
+        {
+            "type": "radio",
+            "label": "The trainer mastered the subject of the course",
+            "required": true,
+            "options": [
+                "1",
+                "2",
+                "3",  
+                "4",
+                "5"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "Please rate the overall quality of the courseware",
+            "required": true,
+            "options": [
+                "1",
+                "2",
+                "3",  
+                "4",
+                "5"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "Please rate the overall quality of the supplied labs",
+            "required": true,
+            "options": [
+                "1",
+                "2",
+                "3",  
+                "4",
+                "5"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "Please rate the overall quality of supplied infrastructure",
+            "required": true,
+            "options": [
+                "1",
+                "2",
+                "3",  
+                "4",
+                "5"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "The trainer made the goals of the training clear",
+            "required": true,
+            "options": [
+                "1",
+                "2",
+                "3",  
+                "4",
+                "5"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "The trainer was helpful",
+            "required": true,
+            "options": [
+                "1",
+                "2",
+                "3",  
+                "4",
+                "5"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "The training delivered me knowledge that will help me with my job.",
+            "required": true,
+            "options": [
+                "1",
+                "2",
+                "3",  
+                "4",
+                "5"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "I'd like to attend more trainings from IT Gilde",
+            "required": true,
+            "options": [
+                "1",
+                "2",
+                "3",  
+                "4",
+                "5"
+            ]
+        },
+        {
+            "type": "text",
+            "label": "Any comments on the training?",
+            "help": "Please, explain in one paragraph."
+        }
+    ]
+}

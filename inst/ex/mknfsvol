@@ -1,0 +1,6 @@
+docker volume create --driver local \
+    --opt type=nfs \
+    --opt o=addr=st99node01,rw \
+    --opt device=:/mnt/export/student01 \
+    mynfsvol
+

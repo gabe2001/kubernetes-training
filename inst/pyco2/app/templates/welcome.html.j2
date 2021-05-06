@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Color Container App</title>
+</head>
+<body>
+	<div style="text-align:center;">
+	<img width="300" src="{{url_for('static', filename=image)}}">
+
+	<H2>Welcome to the {{ color }} container</H2>
+	<P>
+	This container is running on <I>{{ node }}</I> (<I>{{ my_ip }}</I>)
+        <P>
+        Started on: <I>{{ startup_dt }}</I>
+        <P>
+        Running for <I>{{ startup_s }}</I> seconds.
+	<P>
+	You are visitor nr <I>{{ count }}</I> connecting from: <I>{{ visitor }}</I>
+	<P>
+	<H3>Pyco2 version: {{ pyco_version }}</H3>
+</body>
+</html>

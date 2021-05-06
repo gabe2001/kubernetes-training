@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: q10rv2
+  name: q10rv2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: q10rv2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: q10rv2
+    spec:
+      containers:
+      - image: pamvdam/q10rv2:sf
+        name: q10rv2
+        env:
+          - name: QPWD
+            valueFrom:
+              secretKeyRef:
+                name: qsecret
+                key: qpassword
+        volumeMounts:
+          - name: questionnaires-vol
+            mountPath: /app/questionnaires
+         
+      volumes:
+        - name: questionnaires-vol
+          configMap:
+            name: qset

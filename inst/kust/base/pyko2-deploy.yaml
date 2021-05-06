@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pyko2
+  name: pyko2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pyko2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pyko2
+    spec:
+      containers:
+      - image: pamvdam/pyco2:v4x86
+        name: pyko2
+        resources: {}
+status: {}

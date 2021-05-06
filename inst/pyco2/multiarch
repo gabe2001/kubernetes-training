@@ -1,0 +1,8 @@
+podman rmi v7
+podman manifest create v7
+#podman manifest add --all v7 docker://quay.io/pamvdam/pyco2:v7
+podman pull quay.io/pamvdam/pyco2:v7arm64
+podman manifest add v7 quay.io/pamvdam/pyco2:v7arm64
+podman pull quay.io/pamvdam/pyco2:v7amd64
+podman manifest add v7 quay.io/pamvdam/pyco2:v7amd64
+podman manifest push --all --format v2s2 v7 docker://quay.io/pamvdam/pyco2:v7

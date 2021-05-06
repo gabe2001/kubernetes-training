@@ -1,0 +1,1 @@
+kubectl run busybox --image=busybox --schedule="4 10 * * *" --restart=OnFailure --dry-run -o yaml

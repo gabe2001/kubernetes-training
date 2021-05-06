@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: st00node01.itgildelab.net
+spec:
+  secretName: st00node01-tls
+  commonName: "st00node01.itgildelab.net"
+  isCA: true
+  issuerRef:
+    name: selfsigning-issuer
+    kind: ClusterIssuer

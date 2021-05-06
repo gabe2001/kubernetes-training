@@ -1,0 +1,15 @@
+# To view deployments in the K8S cluster
+kubectl get deployments
+kubectl get deploy
+# To describe the state of a deployment
+kubectl describe deployment httpd
+# To delete a deployment
+kubectl delete deployment httpd
+# To update a deployment
+kubectl set image deployment/nginx-deployment nginx=nginx:1.91 --record
+# To display the history of updates
+kubectl rollout history deployment.v1.apps/nginx-deployment
+# To rollback an update
+kubectl rollout undo deployment.v1.apps/nginx-deployment
+# List PODs created by this deployment
+kubectl get pods -l httpd

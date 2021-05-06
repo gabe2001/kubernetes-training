@@ -1,0 +1,44 @@
+{
+    "title": "Your Favorite Orchestrator Survey",
+    "questions": [
+        {
+            "type": "string",
+            "label": "Your Name",
+            "required": true
+        },
+        {
+            "type": "checkbox",
+            "label": "What container orchestrators do you use?",
+            "help": "Professional and at home",
+            "required": true,
+            "options": [
+                "Docker Enterprise",
+                "Docker Swarm",
+                "Mesos",
+                "Kubernetes",
+                "Rancher",
+                "OpenShift",
+                "+Other"
+            ]
+        },
+        {
+            "type": "radio",
+            "label": "What orchestrator do you prefer?",
+            "required": true,
+            "options": [
+                "Docker Enterprise",
+                "Docker Swarm",
+                "Mesos",
+                "Kubernetes",
+                "Rancher",
+                "OpenShift",
+                "+Other"
+            ]
+        },
+        {
+            "type": "text",
+            "label": "Any comments on this survey?",
+            "help": "Please, keep it short and tidy."
+        }
+    ]
+}

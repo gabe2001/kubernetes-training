@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  color: red
+  mascot: astro
+kind: ConfigMap
+metadata:
+  name: myconfig

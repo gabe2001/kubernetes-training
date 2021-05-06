@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: astro
+  name: astro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: astro
+  template:
+    metadata:
+      labels:
+        run: astro
+    spec:
+      containers:
+      - image: pamvdam/astro:sf1
+        imagePullPolicy: IfNotPresent
+        name: astro
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            httpHeaders:
+            - name: Custom-Header
+              value: Probe
+          periodSeconds: 5
+          initialDelaySeconds: 10

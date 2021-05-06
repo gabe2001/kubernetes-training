@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginxc-yellow
+  name: nginxc-yellow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nginxc-yellow
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nginxc-yellow
+    spec:
+      containers:
+      - image: pamvdam/nginxc:v1.1
+        name: nginxc-yellow
+        env:
+          - name: COLOR
+            value: "yellow"
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
