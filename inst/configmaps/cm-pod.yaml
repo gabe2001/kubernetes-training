@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: color-container
+spec:
+  containers:
+  - name: color-container
+    image: pamvdam/nginxc:v1.1
+    env:
+    - name: COLOR
+      valueFrom:
+        configMapKeyRef:
+          name: myconfig
+          key: color
+  restartPolicy: Never
