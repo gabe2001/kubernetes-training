@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    run: nginxc-green
+  name: nginxc-green
+spec:
+  selector:
+    matchLabels:
+      run: nginxc-green
+  template:
+    metadata:
+      labels:
+        run: nginxc-green
+    spec:
+      containers:
+      - image: pamvdam/nginxc:v1.1
+        name: nginxc-green
+        env:
+          - name: COLOR
+            value: "green"
+        ports:
+        - containerPort: 80
+          hostPort: 80

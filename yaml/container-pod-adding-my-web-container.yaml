@@ -1,0 +1,21 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: simple-volume-pod
+spec:
+  volumes:
+  - name: simple-vol
+    emptyDir: {}
+  containers:
+  - name: my-container
+    volumeMounts:
+      - name: simple-vol
+        mountPath: /var/simple
+    image: alpine
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do date >> /var/simple/index.html; sleep 5; done"]
+  - name: my-web
+    image: nginx:1.7.1
+    volumeMounts:
+    - name: simple-vol
+      mountPath: /usr/local/nginx/html

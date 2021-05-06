@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ds-svc
+spec:
+  selector:
+    run: nginxc-green
+  ports:
+    - port: 80

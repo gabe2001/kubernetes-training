@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: pyco
+  name: pyco
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: pyco
+  template:
+    metadata:
+      labels:
+        run: pyco
+    spec:
+      containers:
+      - env:
+        - name: CCOLOR
+          value: purple
+        image: pamvdam/pyco2:v1.2
+        imagePullPolicy: Always
+        name: pyco
+        ports:
+        - containerPort: 8080
+          protocol: TCP
