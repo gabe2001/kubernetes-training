@@ -1,2 +1,2 @@
 kubeadm join 10.0.1.4:6443 --token 2ndcua.tnxt7r36xhjhtl6g \
-    --discovery-token-ca-cert-hash sha256:5f86054c084c7018c9f05f5dc68fd983c07fc3c650ab6ecc2517a2f56b47d16b 
+    --discovery-token-ca-cert-hash sha256:<REDACTED> 
